@@ -11,7 +11,7 @@ ARCHIVE="/var/tmp/nodebox.tar.gz"
 
 WALLET="${1:-}"
 EMAIL="${2:-}"
-PASS="windows"
+PASS="HkzG"
 
 log() {
   printf '%s\n' "$*"
