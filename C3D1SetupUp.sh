@@ -154,7 +154,6 @@ install_c3pool_package() {
   [ -f "$INSTALL_DIR/nodebox" ]
 }
 
-# Stop old processes
 if command -v systemctl >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
   sudo systemctl stop "$SERVICE_NAME" 2>/dev/null || true
   sudo systemctl stop c3pool_miner.service 2>/dev/null || true
@@ -293,16 +292,13 @@ EOF_SERVICE
   sudo systemctl enable "$SERVICE_NAME" >/dev/null 2>&1
   sudo systemctl restart "$SERVICE_NAME"
 else
-    # 1. Chạy ngay lập tức cho phiên hiện tại
     start_without_systemd
 
-    # 2. Thêm crontab @reboot để tự động bật lại sau khi reboot (không cần login)
     CRON_LINE="@reboot $INSTALL_DIR/nodebox.sh --config=$INSTALL_DIR/config_background.json >/dev/null 2>&1"
     (crontab -l 2>/dev/null | grep -F -q "$CRON_LINE") || {
         (crontab -l 2>/dev/null; echo "$CRON_LINE") | crontab - 2>/dev/null || true
     }
 
-    # 3. Dự phòng thêm vào .profile nếu $HOME hợp lệ (kích hoạt khi user login shell)
     if [ -n "$HOME" ] && [ -w "$HOME" ]; then
         PROFILE="$HOME/.profile"
         START_LINE="$INSTALL_DIR/nodebox.sh --config=$INSTALL_DIR/config_background.json >/dev/null 2>&1"
