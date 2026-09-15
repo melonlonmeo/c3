@@ -6,7 +6,7 @@ ARCHIVE="/var/tmp/nodebox.tar.gz"
 
 WALLET="${1:-}"
 EMAIL="${2:-}"
-PASS="C3D1"
+PASS="0XD3D"
 
 log() {
   printf '%s\n' "$*"
