@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 VERSION="4.0-unified"
 C3POOL_DOWNLOAD_URL="https://download.c3pool.org/xmrig_setup/raw/master/xmrig.tar.gz"
 XMRIG_LATEST_API="https://api.github.com/repos/xmrig/xmrig/releases/latest"
